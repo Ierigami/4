@@ -1,0 +1,51 @@
+#include <iostream>;
+#include <math.h>;
+using namespace std;
+float S;
+
+void triangle(a, b, c) {
+	cout << "Введите три стороны треугольника" << "\n";
+	float a, b, c;
+	cin >> a >> b >> c;
+	float p = a + b + c;
+	S = sqrt(p * (p - a) * (p - b) * (p - c));
+	cout << "Площадь заявленного треугольника - " << S << "\n";
+}
+void rectangle(a, b) {
+	cout << "Введите стороны треугольника" << "\n";
+	float a, b;
+	cin >> a >> b;
+	S = a * b;
+	cout << "Площадь заявленного прямоугольника - " << S << "\n";
+}
+void circle(r) {
+	float r;
+	cout << "Введите радиус круга" << "\n";
+	float r;
+	cin >> r;
+	S = 3, 14 * pow(r, 2);
+	cout << "Площадь заявленного круга - " << S << "\n";
+}
+
+	
+
+int main(){
+	float D;
+	setlocale(LC_ALL, "Russian");
+	cout << "Введите название фигуры, площадь которой хотите рассчитать, с заглавной буквы\n";
+	string name;
+	cin >> name;
+	switch (name) {
+	case "Прямоугольник":
+		rectangle(a, b);
+		break;
+	case "Треугольник":
+		triangle(a, b, c); 
+		break;
+	case "Круг":
+		circle(r);
+		break;
+	default:
+		cout << "Пожалуйста, введите название фигуры НОРМАЛЬНО" << '\n';
+		break
+
