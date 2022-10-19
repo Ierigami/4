@@ -1,39 +1,50 @@
-ostream>;
-#include <math.h>;
+#include <iostream>
+#include <math.h>
+#include <string>
 using namespace std;
-float S, a, b, c, d, e, r;
 
-void triangle(a, b, c) {
-	cout << "Введите три стороны треугольника" << "\n";
-	float a, b, c;
-	cin >> a >> b >> c;
-	float p = a + b + c;
-	S = sqrt(p * (p - a) * (p - b) * (p - c));
-	cout << "Площадь заявленного треугольника - " << S << "\n";
+void thing(int a, int b){ //прямоугольник;
+	float s = a * b;
+	cout << "ответ - " << s;
 }
-void rectangle(d, e) {
-	S = d * e;
-	cout << "Площадь заявленного прямоугольника - " << S << "\n";
+void square(int d, int e, int f){ //треугольник
+	float p = d + e + f;
+	float s = sqrt(p * (p - d) * (p - e) * (p - f));
+	cout << "ответ - " << s;
 }
-void circle(r) {
-	float r;
-	cout << "Введите радиус круга" << "\n";
-	float r;
-	cin >> r;
-	S = 3, 14 * pow(r, 2);
-	cout << "Площадь заявленного круга - " << S << "\n";
+float circle(int r, float p) {
+	return p * r * r;
 }
-
-
 
 int main() {
-	float D;
-	setlocale(LC_ALL, "Russian");
-	cout << "Введите фигуру: 1 - если прямоугольник, 2 - если треугольник, 3 - если круг" << '\n';
-	int name;
-	cin >> name;
-	switch (name) {
-		case "Прямоугольник:
-			cout << "Введите стороны прямоугольника" << "\n";
-			cin >> d >> e;
-			rectangle(d, e);*/
+	setlocale(0, "");
+
+	float k, L, a, b, r, d, e, f;
+	float p = 3.14;
+	cout << "Введите 1 - если прямоугольник, 2 - если треугольник 3 - если круг";
+	cin >> L;
+
+	switch (L) {
+	case 1: //прямоугольник;
+		cout << "Введите 2 стороны вашего прямоугольника";
+		cin >> a >> b;
+		thing(a, b);
+		break;
+	case 2: // треугольник;
+		cout << "Введите три стороны треугольника: " << '\n';
+		cin >> d >> e >> f;
+		if ((d <= 0) || (e <= 0) || (f <= 0)) {
+			cout << "У треугольника не может быть отрицательных сторон\n";
+		}
+		else if {
+			cout << "Треугольника не существует введите другой" << '\n';
+		}
+		else if ((d + e > f) && (d + f > e) && (e + f > d))
+			square(d, e, f);
+	}
+	break;
+	case 3: // круг;
+		cin >> r;
+		cout << circle(r, p);
+		break;
+}
