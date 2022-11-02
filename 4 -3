@@ -3,12 +3,12 @@
 #include <string>
 using namespace std;
 
-void thing(int a, int b){ //прямоугольник;
+void thing(int a, int b) { //прямоугольник;
 	float s = a * b;
 	cout << "ответ - " << s;
 }
-void square(int d, int e, int f){ //треугольник
-	float p = d + e + f;
+void square(int d, int e, int f) { //треугольник
+	float p = (d + e + f)/2;
 	float s = sqrt(p * (p - d) * (p - e) * (p - f));
 	cout << "ответ - " << s;
 }
@@ -18,8 +18,8 @@ float circle(int r, float p) {
 
 int main() {
 	setlocale(0, "");
-
-	float k, L, a, b, r, d, e, f;
+	int L;
+	float k, a, b, r, d, e, f;
 	float p = 3.14;
 	cout << "Введите 1 - если прямоугольник, 2 - если треугольник 3 - если круг";
 	cin >> L;
@@ -28,23 +28,31 @@ int main() {
 	case 1: //прямоугольник;
 		cout << "Введите 2 стороны вашего прямоугольника";
 		cin >> a >> b;
-		thing(a, b);
+		if ((a <= 0) || (b <= 0)) {
+			cout << ("прямоугольника не существует");
+		}
+		else {
+			thing(a, b);
+		}
 		break;
 	case 2: // треугольник;
 		cout << "Введите три стороны треугольника: " << '\n';
 		cin >> d >> e >> f;
 		if ((d <= 0) || (e <= 0) || (f <= 0)) {
-			cout << "У треугольника не может быть отрицательных сторон\n";
+			cout << "У треугольника не может быть отрицательных и нулевых сторон\n";
 		}
-		else if {
+		else if ((d + e <= f)||(d + f <= e) || (f + e <= d)) {
 			cout << "Треугольника не существует введите другой" << '\n';
 		}
-		else if ((d + e > f) && (d + f > e) && (e + f > d))
+		else {
 			square(d, e, f);
-	}
-	break;
+		}
+		break;
 	case 3: // круг;
 		cin >> r;
-		cout << circle(r, p);
+		if (r <= 0) {
+			cout << circle(r, p);
+		}
 		break;
+	}
 }
