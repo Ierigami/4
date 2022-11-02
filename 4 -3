@@ -51,6 +51,9 @@ int main() {
 	case 3: // круг;
 		cin >> r;
 		if (r <= 0) {
+			cout << ("круга не существует");
+		}
+		else {
 			cout << circle(r, p);
 		}
 		break;
