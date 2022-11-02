@@ -1,0 +1,50 @@
+#include <iostream>;
+using namespace std;
+
+int number(char H) {
+	switch (H) {
+	case 'I': return 1;
+	case 'V': return 5;
+	case 'X': return 10;
+	case 'L': return 50;
+	case 'C': return 100;
+	case 'D': return 500;
+	case 'M' : return 1000;
+	}
+}
+int main() {
+	setlocale(0, "");
+	string E;
+	bool A = true;
+
+	char H;
+	int G;
+	int result = 0;
+	int prev = 0;
+	
+	cout << "введите римское число";
+	cin >> E;
+	for (int i = 0; i < E.length(); i++) {
+		if ((E[i] == 'I') || (E[i] == 'V') || (E[i] == 'X') || (E[i] == 'L') || (E[i] == 'C') || (E[i] == 'D') || (E[i] == 'M')) {
+			A = true;
+		}
+		else {
+			A = false;
+			cout << "введено не римское число\n";
+			return 0;
+		}
+	}
+	for (int i = E.size() - 1; i >= 0; i--) {
+		H = E[i];
+		G = number(H);
+		if (prev < G) {
+			result += G;
+		}
+		else {
+			result -= G;
+		}
+		prev = G;
+	}
+	cout << " Ответ : " << result << '\n';
+	return 0;
+}
