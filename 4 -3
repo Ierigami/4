@@ -3,16 +3,16 @@
 #include <string>
 using namespace std;
 
-void thing(int a, int b) { //прямоугольник;
+void thing(float a, float b) { //прямоугольник;
 	float s = a * b;
 	cout << "ответ - " << s;
 }
-void square(int d, int e, int f) { //треугольник
-	float p = (d + e + f)/2;
+void square(float d, float e, float f) { //треугольник
+	float p = (d + e + f) / 2;
 	float s = sqrt(p * (p - d) * (p - e) * (p - f));
 	cout << "ответ - " << s;
 }
-float circle(int r, float p) {
+float circle(float r, float p) {
 	return p * r * r;
 }
 
@@ -41,7 +41,7 @@ int main() {
 		if ((d <= 0) || (e <= 0) || (f <= 0)) {
 			cout << "У треугольника не может быть отрицательных и нулевых сторон\n";
 		}
-		else if ((d + e <= f)||(d + f <= e) || (f + e <= d)) {
+		else if ((d + e <= f) || (d + f <= e) || (f + e <= d)) {
 			cout << "Треугольника не существует введите другой" << '\n';
 		}
 		else {
