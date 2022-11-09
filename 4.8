@@ -30,4 +30,71 @@ The number of the seller who received the highest commission: 2
 The number of the seller who received the lowest commission: 3
 The total amount of money received from goods sold: 93.2
 Total commission received sellers: 3
-The total amount of money passed through the hands of sellers: 134.5
+The total amount of money passed through the hands of sellers: 134.50
+
+#include <iostream>;
+using namespace std;
+float a = 1.20, b = 2.8, c = 5, d = 2;
+
+int main() {
+	setlocale(0, "");
+	int products[3][4] = { {5, 2, 0, 10}, {3, 5, 2, 5}, {20, 0, 0, 0} };
+	float prices[4][2] = { {1.2, 0.5}, {2.8, 0.4}, {5, 1}, {2, 1.5} };
+	float result[3][2] = {};
+
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 2; j++) {
+			float sum = 0;
+			for (int k = 0; k < 4; k++) {
+				sum += products[i][k] * prices[k][j];
+			}
+			result[i][j] = sum;
+		}
+	}
+
+	float maxx0 = 0, maxx1 = 0, min0 = 10000000, min1 = 100000000, SUMM = 0, pricesum = 0, comissionsum = 0;
+	int P0 = 0, P1 = 0, M0 = 0, M1 = 0;
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 2; j++) {
+			cout << result[i][j] << " ";
+		}
+		cout << "\n";
+	}
+	for (int i = 0; i < 3; i++) {	
+		pricesum += result[i][0];
+		comissionsum += result[i][1];
+		
+		if (result[i][0] > maxx0) {
+			maxx0 = result[i][0];
+			P0 = i;
+		}
+		if (result[i][0] < min0) {
+			min0 = result[i][0];
+			P1 = i;
+		}
+		if (result[i][1] > maxx1) {
+			maxx1 = result[i][1];
+			M0 = i;
+		}
+		if (result[i][1] > min1) {
+			maxx1 = result[i][1];
+			M1 = i;
+		}
+	}
+	cout << "Максимальная выручка у продавца под номером " << P0 + 1 << '\n';
+	cout << "Минимальная выручка у продавца под номером " << P1 + 1 << '\n';
+	cout << "Максимальные комиссионные у продавца под номером " << M0 + 1 << '\n';
+	cout << "Минимальные комиссионные у продавца под номером " << M1 + 1 << '\n';
+	cout << "Общая стоимость товаров " << pricesum << '\n';
+	cout << "Общая сумма комиссионных " << comissionsum << '\n';
+	cout << "Обща\ сумма денег, прошедших через руки продавцов " << pricesum + comissionsum << '\n';
+
+
+
+
+
+
+	
+}
+
+
