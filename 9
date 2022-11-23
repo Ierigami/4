@@ -1,1 +1,46 @@
-- 
+#include <iostream>;
+
+#include <map>;
+using namespace std;
+
+int main() {
+	setlocale(0, "");
+
+	map <char, float> book = { {'A', 10}, {'B', 11}, {'C', 12}, {'D', 13}, {'E', 14}, {'F', 15 } };
+	string line = "ABCDEF";
+	string number;
+	int system1, system2, curr, summ = 0;
+	bool Flag = true;
+	cout << "Введите исходное число\n";
+	cin >> number;
+	
+
+	if (number[0] == '-') {
+		Flag = false;
+	}
+
+	cout << "Введите исходную систему счисления\n ";
+	cin >> system1;
+
+
+	if (system1 <= 1) {
+		cout << "Такой системы не существует";
+	}
+	else if (system1 > 16) {
+		cout << "Слишком большоая система счисления, обойдемся без таких";
+	}
+
+	cout << "Введите систему счисления, в которую хотите перевести\n ";
+	cin >> system2;
+
+
+	if (system2 == 10) {
+		for (int i = number.size() - 1; i >= 0; i--) {
+			curr = book[number[i]];
+			summ += pow(system1, number.size() - i-1) * curr;
+		}
+	}
+
+	cout << "Ответ: " << summ << endl;
+	}
+	
