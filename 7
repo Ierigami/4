@@ -1,0 +1,32 @@
+#include <iostream>;
+using namespace std;
+
+int rangen(int n, int m, int i, int c) {
+	if (n == 0) return 0;
+	else return (m * rangen(n - 1, m, i, c) + i) % c;
+}
+
+int main() {
+	setlocale(0, "");
+	string mode;
+	int count;
+	cout << "Ввести набор чисел 1 - малые числа, 2 - малые\n ";
+	cin >> mode;
+
+	cout << "Ввести кол-во чисел которое нужно вывести\n";
+	cin >> count;
+
+	if (mode == "1") {
+		for (int j = 1; j < count + 1; j++) {
+			cout << rangen(j, 37, 3, 64) << " ";
+		}
+	}
+	else if (mode == "2") {
+		cout << 4;
+		for (int j = 1; j < count + 1; j++) {
+			
+			cout << rangen(j, 25173, 13849, 65537) << " ";
+		}
+	}
+	cout << endl;
+}
